@@ -50,12 +50,13 @@ Detect by looking for: `mcp.server`, `FastMCP`, `@mcp.tool`, `@server.tool`, or 
 | Docstrings | Public functions have docstrings that an agent could parse for usage. |
 | Structured errors | Exceptions are typed (custom exception classes), not bare `Exception()`. |
 
-#### README Agent Section
+#### Agent Discoverability
 
 | Check | What to look for |
 |-------|-----------------|
+| SKILL.md | If the project is an MCP server or agent tool, check for a `SKILL.md` file that provides structured metadata for agent discovery (name, description, capabilities, entry point). WARN if missing on agentic tools. |
 | MCP config example | README includes a JSON snippet showing how to add this tool to `claude_desktop_config.json` or `.mcp.json`. |
-| Agent usage example | README shows how an agent would invoke the tool, not just human CLI usage. |
+| Agent usage example | README has an "Agent integration" section showing programmatic API usage or structured output (e.g., `--json` flag), not just human CLI usage. |
 
 ### 3. Package Quality (Engineering Layer)
 
@@ -105,6 +106,14 @@ Agentic tools get installed programmatically — bloated dependency trees mean s
 | Install section | Contains `pip install` or equivalent |
 | Usage example | Contains a code block with actual usage |
 | License mention | References the license type |
+| Demo content | `demo/` directory exists with at least one asset (GIF, SVG, PNG). README embeds it above the fold. WARN if missing — repos with demos get ~42% more stars. |
+
+### 8. Content Freshness
+
+| Check | What to look for |
+|-------|-----------------|
+| CONTRIBUTING.md accuracy | If CONTRIBUTING.md mentions tools or dependencies (e.g., "we use click and rich"), verify they still exist in pyproject.toml. WARN if references are stale. |
+| Demo currency | If demo-script.sh exists, check for version strings and compare against pyproject.toml version. WARN if stale. |
 
 ---
 
@@ -112,11 +121,11 @@ Agentic tools get installed programmatically — bloated dependency trees mean s
 
 | Grade | Criteria |
 |-------|----------|
-| **A** | All checks pass. Ship it. |
-| **B** | Community health + agentic quality pass. Minor engineering gaps (missing badges, setuptools instead of hatchling). |
-| **C** | Has LICENSE and README. Agentic quality has gaps (missing tool descriptions, bare params). |
-| **D** | Missing LICENSE or has critical agentic quality failures (tools with no descriptions). |
-| **F** | Multiple critical failures. Not ready for public release. |
+| **A** | 0 FAIL, ≤1 WARN. Ship it. |
+| **B** | 0-2 FAIL (non-critical), ≤3 WARN. Community health + agentic quality pass. |
+| **C** | 3-5 FAIL, or missing LICENSE but has README. Agentic quality has gaps. |
+| **D** | >5 FAIL, or no README. Critical agentic quality failures. |
+| **F** | No LICENSE + no README. Not ready for public release. |
 
 ## Output Format
 

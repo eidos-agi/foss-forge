@@ -45,9 +45,14 @@ The README is the conversion engine. A visitor decides in 5 seconds whether to s
 4. **Install** — one command. `pip install` or `pipx install` for CLIs.
 5. **Quick start** — 3-5 lines of code showing the core use case.
 6. **For agentic tools: MCP config snippet** — the JSON to add to `.mcp.json` or `claude_desktop_config.json`.
-7. **Feature list** — bullet points, not paragraphs.
-8. **Comparison table** (if applicable) — your tool vs. alternatives. Be honest about trade-offs.
-9. Use `<details>` collapsible sections for verbose content (full API reference, advanced config).
+7. **Agent integration section** — REQUIRED for agentic tools. Show:
+   - Programmatic Python API usage (not just CLI)
+   - Structured output mode (`--json`, `--fields`)
+   - MCP config snippet (if applicable)
+   - This section proves the tool is agent-native, not just human-facing
+8. **Feature list** — bullet points, not paragraphs.
+9. **Comparison table** (if applicable) — your tool vs. alternatives. Be honest about trade-offs.
+10. Use `<details>` collapsible sections for verbose content (full API reference, advanced config).
 
 #### Star History Chart
 
