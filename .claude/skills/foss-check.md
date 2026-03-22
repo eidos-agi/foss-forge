@@ -107,6 +107,7 @@ Agentic tools get installed programmatically — bloated dependency trees mean s
 | Usage example | Contains a code block with actual usage |
 | License mention | References the license type |
 | Demo content | `demo/` directory exists with at least one asset (GIF, SVG, PNG). README embeds it above the fold. WARN if missing — repos with demos get ~42% more stars. |
+| Image URLs absolute | All `<img src=` and `![](` in README use absolute URLs (https://), not relative paths. Relative images break on PyPI, npm, and anywhere README is rendered outside GitHub. FAIL if relative paths found. Fix: use `https://raw.githubusercontent.com/{org}/{repo}/main/{path}`. |
 
 ### 8. Content Freshness
 
