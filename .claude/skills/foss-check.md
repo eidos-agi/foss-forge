@@ -78,7 +78,8 @@ Detect by looking for: `mcp.server`, `FastMCP`, `@mcp.tool`, `@server.tool`, or 
 |-------|-----------------|
 | Test workflow | `.github/workflows/ci.yml` or similar — runs tests on push/PR |
 | Publish workflow | `.github/workflows/publish.yml` or similar — publishes on tag push |
-| Trusted publisher | Publish workflow uses `pypa/gh-action-pypi-publish` with OIDC (no API tokens) |
+| Trusted publisher | Publish workflow uses `pypa/gh-action-pypi-publish` with OIDC (`permissions: { id-token: write, contents: read }`). FAIL if workflow uses a stored `PYPI_TOKEN` secret instead. No long-lived PyPI credentials in CI — the friction of per-package OIDC registration is the security feature (blast radius containment). |
+| GitHub environment | Publish workflow references `environment: pypi`. WARN if missing — trusted publisher won't work without it. |
 
 ### 5. Dependency Hygiene
 
