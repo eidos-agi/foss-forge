@@ -45,6 +45,7 @@ To use foss-forge skills in any Eidos AGI project, the skills reference template
 
 ## Related Forges
 
-- **forge-forge** — meta-forge for creating and managing forges (`/forge-init`, `/forge-audit`, `/forge-catalog`)
+- **forge-forge** — meta-forge for creating and managing forges
 - **demo-forge** — AI-generated demos (GIFs, SVGs, screenshots, diagrams, social cards)
+- **security-forge** — security auditing and agentic threat modeling
 - **test-forge** — testing standards and test generation

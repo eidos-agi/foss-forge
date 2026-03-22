@@ -13,7 +13,9 @@ User says `/foss-release` or asks to release/publish a package to PyPI.
 - `major` — bump major version (0.1.0 → 1.0.0)
 - A specific version like `0.3.0` — set exactly that version
 
-## Pre-flight Checks
+## Instructions
+
+### Pre-flight Checks
 
 Before starting, verify ALL of these. Stop and fix any failures:
 
@@ -25,7 +27,7 @@ Before starting, verify ALL of these. Stop and fix any failures:
 6. **LICENSE exists** — FAIL if missing. Cannot release without a license.
 7. **Run `/foss-check` mentally** — if critical issues exist (no README, no license), block the release.
 
-## Release Steps
+### Release Steps
 
 ### Step 1: Determine New Version
 

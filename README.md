@@ -64,6 +64,7 @@ Now `/foss-check`, `/foss-init`, `/foss-release`, `/foss-launch`, and `/foss-dem
 - [forge-forge](https://github.com/eidos-agi/forge-forge) — the meta-forge (create and manage forges)
 - [foss-forge](https://github.com/eidos-agi/foss-forge) — this repo
 - [demo-forge](https://github.com/eidos-agi/demo-forge) — AI-generated demo content
+- [security-forge](https://github.com/eidos-agi/security-forge) — security auditing and agentic threat modeling
 - [test-forge](https://github.com/eidos-agi/test-forge) — testing standards
 
 ## License
