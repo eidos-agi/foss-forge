@@ -1,0 +1,15 @@
+{
+  "id": "5fd8d0bd-1a66-43c9-b0b5-9973cedfad34",
+  "version": "0.1.0",
+  "projectName": "trusted-publishers-rationale",
+  "created": "2026-03-22",
+  "phase": "research",
+  "transitions": [
+    {
+      "phase": "research",
+      "date": "2026-03-22"
+    }
+  ],
+  "question": "Why did PyPI introduce trusted publishers (OIDC) and recommend them over API tokens? What problems were they solving?",
+  "context": "Eidos AGI uses trusted publishers for all PyPI packages. During setup of 7+ packages, the friction of registering pending publishers came up — each new package requires a manual form submission on PyPI plus environment creation on GitHub. We want to understand the security rationale so we can document it in foss-forge as a finding, and explain to future contributors why we chose this path despite the friction. We have a PyPI API token in our vault that would be simpler to use. We need to understand the tradeoffs well enough to make this a documented decision."
+}
