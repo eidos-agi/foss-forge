@@ -1,0 +1,61 @@
+# Contributing to {{PROJECT_NAME}}
+
+Thanks for your interest in contributing.
+
+## Quick start
+
+```bash
+git clone https://github.com/{{GITHUB_ORG}}/{{GITHUB_REPO}}.git
+cd {{GITHUB_REPO}}
+swift build
+swift test
+```
+
+Requires a recent Xcode command-line toolchain (`xcode-select --install`).
+
+## Development
+
+Formatting uses [swift-format](https://github.com/swiftlang/swift-format), which ships with
+recent toolchains:
+
+```bash
+swift format lint --recursive Sources Tests
+swift format --in-place --recursive Sources Tests
+```
+
+Run tests:
+
+```bash
+swift test
+```
+
+## For agent developers
+
+If you're building tools that AI agents will use, pay special attention to:
+
+1. **A headless path for everything.** Any capability reachable only through a GUI is invisible to
+   an agent. Every feature needs a CLI subcommand or a `--json` output mode.
+2. **Errors on stderr, data on stdout.** Agents pipe stdout. Diagnostics that land there corrupt
+   the payload.
+3. **Exit codes that mean something.** `0` success, non-zero failure, and distinct codes for
+   distinct failure classes an agent might handle differently.
+4. **Doc comments on public API.** `///` comments on every `public` symbol — they're what an agent
+   reads to understand the contract, and what `swift-docc` publishes.
+5. **Typed errors.** Conform to `Error` with a concrete type and a `CustomStringConvertible`
+   description that says what to do next, not just what went wrong.
+
+## Pull requests
+
+- Keep PRs focused — one feature or fix per PR
+- Include tests for new functionality
+- Update CHANGELOG.md with your changes
+- Ensure `swift test` and `swift format lint` pass
+
+## Reporting issues
+
+Open an issue with:
+
+1. What you were trying to do
+2. What happened instead
+3. Steps to reproduce
+4. `swift --version` and your macOS version

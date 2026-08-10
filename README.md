@@ -24,6 +24,24 @@ Agents are the primary consumers of agentic software. They deserve the same qual
 | `/foss-launch` | Marketing playbook: README optimization, badges, star history, launch channels, timeline |
 | `/foss-demo` | Demo assessment and generation — delegates to demo-forge for production content |
 
+## Language tracks
+
+The Human and Agent layers are the same everywhere. The Engineering layer is not — so the skills
+detect a track from the manifest at the repo root and check accordingly:
+
+| Track | Manifest | Test | Publish |
+|-------|----------|------|---------|
+| `python` | `pyproject.toml` | `pytest` | PyPI trusted publisher (OIDC) |
+| `swift` | `Package.swift` | `swift test` | signed + notarized artifact on a GitHub Release |
+
+Track-specific templates live in `templates/<track>/` and override a shared template of the same
+name. Adding a track means adding that directory plus a row in the detection tables in `foss-check`
+and `foss-init` — nothing else.
+
+Note that Swift has no trusted-publisher equivalent: code signing needs a Developer ID certificate,
+which is a long-lived secret by construction. The `swift` track substitutes a reviewed GitHub
+Environment gate for the short-lived credential Python gets.
+
 ## The Standard
 
 A package is **foss-forge compliant** when it passes `/foss-check` with an A grade across three layers:

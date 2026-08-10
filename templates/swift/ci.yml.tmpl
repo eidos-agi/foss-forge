@@ -1,0 +1,21 @@
+name: ci
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: swift version
+        run: swift --version
+      - name: build
+        run: swift build -v
+      - name: test
+        run: swift test -v
+
+  lint:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: format lint
+        run: swift format lint --recursive --strict Sources Tests
